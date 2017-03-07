@@ -5,3 +5,4 @@ This is a simple python application which uses "urllib2" and "BeautifukSoup4" li
 to scrape some text, namely the book title, from the webpage, and print it. 
 
 Web page:  https://www.packtpub.com/packt/offers/free-learning/
+Repository: https://github.com/julio77nz/Prac1Extra1
