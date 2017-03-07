@@ -13,10 +13,10 @@ import bs4
 
 class Client(object):
 
-    """Web Client, for www.udl.Created
-
-    Downloads www.udl.cat main page to parse
-    for agenda items"""
+    """
+    Downloads https://www.packtpub.com/packt/offers/free-learning/ 
+    main page to parse for agenda items
+    """
 
     def __init__(self):
         super(Client, self).__init__()
@@ -32,15 +32,19 @@ class Client(object):
 
     def parse_web_page(self, html):
         """
-        Parses an html page searching for the agenda
+        Parses an html page searching for div where the book title appear
+        and retrieve only the title text
         """
-        soup = bs4.BeautifulSoup(html)
-        dailybook = soup.find_all("div", "dotd-title")
-        return dailybook
+        soup = bs4.BeautifulSoup(html) 
+        book = soup.find_all("div", "dotd-title")
+        for title in book:
+    		dailybook = title.find('h2')
+        return dailybook.text
 
     def run(self):
         """
-        Retrieves the book from https://www.packtpub.com/ and print it
+        Retrieves the book from https://www.packtpub.com/packt/offers/free-learning/ 
+        and print it
         """
         html = self.get_web_page("https://www.packtpub.com/packt/offers/free-learning/")
         dailybook = self.parse_web_page(html)
