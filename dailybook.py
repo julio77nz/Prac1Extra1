@@ -38,8 +38,8 @@ class Client(object):
         soup = bs4.BeautifulSoup(html) 
         book = soup.find_all("div", "dotd-title")
         for title in book:
-    		dailybook = title.find('h2')
-        return dailybook.text
+    		daily_book = title.find('h2')
+        return daily_book.text
 
     def run(self):
         """
@@ -47,8 +47,8 @@ class Client(object):
         and print it
         """
         html = self.get_web_page("https://www.packtpub.com/packt/offers/free-learning/")
-        dailybook = self.parse_web_page(html)
-        print(dailybook)
+        daily_book = self.parse_web_page(html)
+        print(daily_book)
 
 
 if __name__ == "__main__":
